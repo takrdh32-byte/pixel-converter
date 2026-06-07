@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Pixel Converter - Resize and convert images instantly">
+    <meta name="theme-color" content="#0f172a">
+    <title>Pixel Converter - Image Resizer & Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="logo-icon">⚡</span>
+                    Pixel Converter
+                </h1>
+                <p class="tagline">Professional Image Resizing & Format Conversion</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-container">
+                    <input 
+                        type="file" 
+                        id="imageInput" 
+                        accept="image/*"
+                        class="file-input"
+                    >
+                    <label for="imageInput" class="upload-label">
+                        <div class="upload-icon">📸</div>
+                        <p class="upload-text">Click to upload or drag & drop</p>
+                        <p class="upload-subtext">PNG, JPG, WebP, GIF...</p>
+                    </label>
+                </div>
+                <div id="preview-section" class="preview-section hidden">
+                    <div class="preview-container">
+                        <img id="previewImage" alt="Preview" class="preview-image">
+                        <div class="image-info">
+                            <p id="originalInfo">Original: Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="settings-section hidden" id="settingsSection">
+                <div class="settings-grid">
+                    <!-- Width Input -->
+                    <div class="input-group">
+                        <label for="widthInput" class="input-label">Width (px)</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="widthInput" 
+                                min="1" 
+                                max="4000"
+                                placeholder="800"
+                                class="input-field"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Height Input -->
+                    <div class="input-group">
+                        <label for="heightInput" class="input-label">Height (px)</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="number" 
+                                id="heightInput" 
+                                min="1" 
+                                max="4000"
+                                placeholder="600"
+                                class="input-field"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Aspect Ratio Lock -->
+                    <div class="input-group full-width">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="lockAspectRatio" checked>
+                            <span>Lock Aspect Ratio</span>
+                        </label>
+                    </div>
+
+                    <!-- Quality Slider -->
+                    <div class="input-group full-width">
+                        <label for="qualitySlider" class="input-label">
+                            Quality: <span id="qualityValue">90</span>%
+                        </label>
+                        <input 
+                            type="range" 
+                            id="qualitySlider" 
+                            min="10" 
+                            max="100"
+                            value="90"
+                            class="quality-slider"
+                        >
+                    </div>
+
+                    <!-- Format Selection -->
+                    <div class="input-group full-width">
+                        <label for="formatSelect" class="input-label">Output Format</label>
+                        <select id="formatSelect" class="format-select">
+                            <option value="image/jpeg">JPEG</option>
+                            <option value="image/png">PNG</option>
+                            <option value="image/webp">WebP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Live Preview -->
+                <div class="converted-preview">
+                    <h3 class="preview-title">Preview</h3>
+                    <canvas id="conversionCanvas" class="canvas-preview"></canvas>
+                    <p id="convertedInfo" class="converted-info">Converted: Calculating...</p>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="actions-section hidden" id="actionsSection">
+                <button id="downloadBtn" class="btn btn-primary">
+                    <span class="btn-icon">⬇️</span>
+                    Download Image
+                </button>
+                <button id="resetBtn" class="btn btn-secondary">
+                    <span class="btn-icon">🔄</span>
+                    Upload Another
+                </button>
+            </section>
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <div class="info-card">
+                    <h3>✨ Features</h3>
+                    <ul>
+                        <li>Instant image resizing to any dimension</li>
+                        <li>Multiple format support (JPEG, PNG, WebP)</li>
+                        <li>Quality control slider</li>
+                        <li>Aspect ratio lock option</li>
+                        <li>Real-time preview</li>
+                        <li>Works offline - no data uploads</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🚀 Pixel Converter v1.0 | Processing locally on your device</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
