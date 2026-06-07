@@ -1,162 +1,401 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Pixel Converter - Resize and convert images instantly">
-    <meta name="theme-color" content="#0f172a">
-    <title>Pixel Converter - Image Resizer & Converter</title>
+    <title>Sarkari Photo Converter | Government Exam Photo Resize Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <div class="header-content">
-                <h1 class="logo">
-                    <span class="logo-icon">⚡</span>
-                    Pixel Converter
-                </h1>
-                <p class="tagline">Professional Image Resizing & Format Conversion</p>
+
+<!-- GOV HEADER STRIP -->
+<div class="gov-strip">
+    <div class="strip-inner">
+        <span>🇮🇳 भारत सरकार | Government of India</span>
+        <span class="strip-right">This is an Official Utility Portal</span>
+    </div>
+</div>
+
+<!-- MAIN HEADER -->
+<header class="main-header">
+    <div class="header-inner">
+        <div class="header-logo">
+            <div class="emblem">
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                    <circle cx="26" cy="26" r="25" stroke="#1a3a6b" stroke-width="2" fill="white"/>
+                    <circle cx="26" cy="26" r="18" stroke="#1a3a6b" stroke-width="1.5" fill="none"/>
+                    <circle cx="26" cy="26" r="4" fill="#1a3a6b"/>
+                    <line x1="26" y1="8" x2="26" y2="44" stroke="#1a3a6b" stroke-width="1" opacity="0.4"/>
+                    <line x1="8" y1="26" x2="44" y2="26" stroke="#1a3a6b" stroke-width="1" opacity="0.4"/>
+                    <line x1="13" y1="13" x2="39" y2="39" stroke="#1a3a6b" stroke-width="1" opacity="0.3"/>
+                    <line x1="39" y1="13" x2="13" y2="39" stroke="#1a3a6b" stroke-width="1" opacity="0.3"/>
+                    <text x="26" y="30" text-anchor="middle" font-size="6" fill="#1a3a6b" font-family="serif" font-weight="bold">सत्यमेव</text>
+                </svg>
             </div>
-        </header>
+            <div class="header-text">
+                <h1>Sarkari Photo Converter</h1>
+                <p>Government Examination Photo Resize & Convert Portal</p>
+            </div>
+        </div>
+        <div class="header-badge">
+            <div class="badge-dot"></div>
+            <span>Secure &amp; Free</span>
+        </div>
+    </div>
+</header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Upload Section -->
-            <section class="upload-section">
-                <div class="upload-container">
-                    <input 
-                        type="file" 
-                        id="imageInput" 
-                        accept="image/*"
-                        class="file-input"
-                    >
-                    <label for="imageInput" class="upload-label">
-                        <div class="upload-icon">📸</div>
-                        <p class="upload-text">Click to upload or drag & drop</p>
-                        <p class="upload-subtext">PNG, JPG, WebP, GIF...</p>
-                    </label>
-                </div>
-                <div id="preview-section" class="preview-section hidden">
-                    <div class="preview-container">
-                        <img id="previewImage" alt="Preview" class="preview-image">
-                        <div class="image-info">
-                            <p id="originalInfo">Original: Loading...</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<!-- NAV BAR -->
+<nav class="gov-nav">
+    <div class="nav-inner">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Photo Guidelines</a>
+        <a href="#" class="nav-link">How to Use</a>
+        <a href="#" class="nav-link">Help &amp; Support</a>
+    </div>
+</nav>
 
-            <!-- Settings Section -->
-            <section class="settings-section hidden" id="settingsSection">
-                <div class="settings-grid">
-                    <!-- Width Input -->
-                    <div class="input-group">
-                        <label for="widthInput" class="input-label">Width (px)</label>
-                        <div class="input-wrapper">
-                            <input 
-                                type="number" 
-                                id="widthInput" 
-                                min="1" 
-                                max="4000"
-                                placeholder="800"
-                                class="input-field"
-                            >
-                        </div>
-                    </div>
+<!-- NOTICE BAR -->
+<div class="notice-bar">
+    <span class="notice-label">📢 NOTICE:</span>
+    <span class="notice-text">All image processing is done locally on your device. No data is uploaded to any server. Your privacy is fully protected.</span>
+</div>
 
-                    <!-- Height Input -->
-                    <div class="input-group">
-                        <label for="heightInput" class="input-label">Height (px)</label>
-                        <div class="input-wrapper">
-                            <input 
-                                type="number" 
-                                id="heightInput" 
-                                min="1" 
-                                max="4000"
-                                placeholder="600"
-                                class="input-field"
-                            >
-                        </div>
-                    </div>
+<!-- MAIN CONTENT -->
+<main class="main-container">
 
-                    <!-- Aspect Ratio Lock -->
-                    <div class="input-group full-width">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="lockAspectRatio" checked>
-                            <span>Lock Aspect Ratio</span>
-                        </label>
-                    </div>
-
-                    <!-- Quality Slider -->
-                    <div class="input-group full-width">
-                        <label for="qualitySlider" class="input-label">
-                            Quality: <span id="qualityValue">90</span>%
-                        </label>
-                        <input 
-                            type="range" 
-                            id="qualitySlider" 
-                            min="10" 
-                            max="100"
-                            value="90"
-                            class="quality-slider"
-                        >
-                    </div>
-
-                    <!-- Format Selection -->
-                    <div class="input-group full-width">
-                        <label for="formatSelect" class="input-label">Output Format</label>
-                        <select id="formatSelect" class="format-select">
-                            <option value="image/jpeg">JPEG</option>
-                            <option value="image/png">PNG</option>
-                            <option value="image/webp">WebP</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Live Preview -->
-                <div class="converted-preview">
-                    <h3 class="preview-title">Preview</h3>
-                    <canvas id="conversionCanvas" class="canvas-preview"></canvas>
-                    <p id="convertedInfo" class="converted-info">Converted: Calculating...</p>
-                </div>
-            </section>
-
-            <!-- Action Buttons -->
-            <section class="actions-section hidden" id="actionsSection">
-                <button id="downloadBtn" class="btn btn-primary">
-                    <span class="btn-icon">⬇️</span>
-                    Download Image
-                </button>
-                <button id="resetBtn" class="btn btn-secondary">
-                    <span class="btn-icon">🔄</span>
-                    Upload Another
-                </button>
-            </section>
-
-            <!-- Info Section -->
-            <section class="info-section">
-                <div class="info-card">
-                    <h3>✨ Features</h3>
-                    <ul>
-                        <li>Instant image resizing to any dimension</li>
-                        <li>Multiple format support (JPEG, PNG, WebP)</li>
-                        <li>Quality control slider</li>
-                        <li>Aspect ratio lock option</li>
-                        <li>Real-time preview</li>
-                        <li>Works offline - no data uploads</li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>🚀 Pixel Converter v1.0 | Processing locally on your device</p>
-        </footer>
+    <!-- PAGE TITLE -->
+    <div class="page-title-block">
+        <div class="page-title-left">
+            <div class="title-accent"></div>
+            <div>
+                <h2 class="page-title">Select Examination to Convert Photo</h2>
+                <p class="page-subtitle">Select your examination below and upload your photo — it will be automatically resized to the exact required specifications.</p>
+            </div>
+        </div>
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="examSearch" placeholder="Search exam (e.g. UPSC, SSC, NEET...)" oninput="filterExams()">
+        </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- EXAM GRID -->
+    <section class="exam-section">
+        <div class="exam-grid" id="examGrid">
+
+            <!-- UPSC -->
+            <div class="exam-card" data-exam="upsc civil services ias ips">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🏛️</div>
+                    <div class="exam-info">
+                        <h3>UPSC Civil Services</h3>
+                        <p>IAS / IPS / IFS — Union Public Service Commission</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 Max: 300 KB</span>
+                            <span class="spec-tag">🖼️ JPEG only</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('UPSC Civil Services', 413, 531, 300, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- SSC -->
+            <div class="exam-card" data-exam="ssc cgl chsl mts gd">
+                <div class="exam-card-left">
+                    <div class="exam-icon">📋</div>
+                    <div class="exam-info">
+                        <h3>SSC CGL / CHSL / MTS</h3>
+                        <p>Staff Selection Commission — All SSC Examinations</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 4×6 cm</span>
+                            <span class="spec-tag">📁 20–50 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('SSC CGL / CHSL / MTS', 472, 708, 50, 'image/jpeg', '4×6 cm (472×708 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- BPSC -->
+            <div class="exam-card" data-exam="bpsc bihar state">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🗺️</div>
+                    <div class="exam-info">
+                        <h3>BPSC Examination</h3>
+                        <p>Bihar Public Service Commission — State Civil Services</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 Max: 200 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('BPSC Examination', 413, 531, 200, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- RRB NTPC -->
+            <div class="exam-card" data-exam="rrb ntpc railway loco group d">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🚂</div>
+                    <div class="exam-info">
+                        <h3>RRB NTPC / Railway Group D</h3>
+                        <p>Railway Recruitment Board — All Railway Exams</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 15–40 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('RRB NTPC / Railway Group D', 413, 531, 40, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- IBPS -->
+            <div class="exam-card" data-exam="ibps banking po clerk sbi">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🏦</div>
+                    <div class="exam-info">
+                        <h3>IBPS Banking PO / Clerk</h3>
+                        <p>Institute of Banking Personnel Selection — SBI, PNB etc.</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 200×230 px</span>
+                            <span class="spec-tag">📁 20–50 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('IBPS Banking PO / Clerk', 200, 230, 50, 'image/jpeg', '200×230 px')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- NTA NEET JEE -->
+            <div class="exam-card" data-exam="nta neet jee mains advanced medical engineering">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🔬</div>
+                    <div class="exam-info">
+                        <h3>NTA NEET / JEE Mains</h3>
+                        <p>National Testing Agency — Medical &amp; Engineering Entrance</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 10–200 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('NTA NEET / JEE Mains', 413, 531, 200, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- RPSC -->
+            <div class="exam-card" data-exam="rpsc rajasthan state psc ras">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🏜️</div>
+                    <div class="exam-info">
+                        <h3>RPSC / RAS Rajasthan</h3>
+                        <p>Rajasthan Public Service Commission — State Services</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 Max: 100 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('RPSC / RAS Rajasthan', 413, 531, 100, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- UPPSC -->
+            <div class="exam-card" data-exam="uppsc up uttar pradesh state pcs">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🏙️</div>
+                    <div class="exam-info">
+                        <h3>UPPSC / UP PCS</h3>
+                        <p>Uttar Pradesh Public Service Commission</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 Max: 100 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('UPPSC / UP PCS', 413, 531, 100, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- MPSC -->
+            <div class="exam-card" data-exam="mpsc maharashtra state psc maha">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🌿</div>
+                    <div class="exam-info">
+                        <h3>MPSC Maharashtra</h3>
+                        <p>Maharashtra Public Service Commission — State Exam</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 200×250 px</span>
+                            <span class="spec-tag">📁 20–60 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('MPSC Maharashtra', 200, 250, 60, 'image/jpeg', '200×250 px')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- DRDO / ISRO -->
+            <div class="exam-card" data-exam="drdo isro defence science research">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🚀</div>
+                    <div class="exam-info">
+                        <h3>DRDO / ISRO / BARC</h3>
+                        <p>Defence &amp; Science Research Organisations</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 Max: 500 KB</span>
+                            <span class="spec-tag">🖼️ JPEG/PNG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('DRDO / ISRO / BARC', 413, 531, 500, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- CTET / TET -->
+            <div class="exam-card" data-exam="ctet tet teacher teaching education">
+                <div class="exam-card-left">
+                    <div class="exam-icon">📚</div>
+                    <div class="exam-info">
+                        <h3>CTET / State TET</h3>
+                        <p>Central &amp; State Teacher Eligibility Tests</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 10–100 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('CTET / State TET', 413, 531, 100, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+            <!-- ARMY / DEFENCE -->
+            <div class="exam-card" data-exam="army navy air force nda cds agniveer defence">
+                <div class="exam-card-left">
+                    <div class="exam-icon">🎖️</div>
+                    <div class="exam-info">
+                        <h3>NDA / CDS / Agniveer</h3>
+                        <p>Defence Recruitment — Army, Navy &amp; Air Force</p>
+                        <div class="exam-specs">
+                            <span class="spec-tag">📸 Photo: 3.5×4.5 cm</span>
+                            <span class="spec-tag">📁 Max: 200 KB</span>
+                            <span class="spec-tag">🖼️ JPEG</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="convert-btn" onclick="openConverter('NDA / CDS / Agniveer', 413, 531, 200, 'image/jpeg', '3.5×4.5 cm (413×531 px)')">
+                    <span>Convert</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INFO STRIP -->
+    <div class="info-strip">
+        <div class="info-item">
+            <span class="info-icon">🔒</span>
+            <div><strong>100% Secure</strong><p>No data leaves your device</p></div>
+        </div>
+        <div class="info-item">
+            <span class="info-icon">⚡</span>
+            <div><strong>Instant Processing</strong><p>No waiting, no queue</p></div>
+        </div>
+        <div class="info-item">
+            <span class="info-icon">✅</span>
+            <div><strong>Exam-Compliant</strong><p>Exact official specifications</p></div>
+        </div>
+        <div class="info-item">
+            <span class="info-icon">🆓</span>
+            <div><strong>Completely Free</strong><p>No registration needed</p></div>
+        </div>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="gov-footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <strong>Sarkari Photo Converter</strong>
+                <p>A free utility for Indian government examination aspirants.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Disclaimer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Sarkari Photo Converter | All rights reserved | Processing done locally — your data is never shared.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- CONVERTER MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-box">
+        <div class="modal-header">
+            <div class="modal-header-text">
+                <h3 id="modalExamName">UPSC Civil Services</h3>
+                <p id="modalSpecText">Photo Specifications</p>
+            </div>
+            <button class="modal-close" onclick="closeConverterModal()">✕</button>
+        </div>
+
+        <div class="modal-body">
+            <!-- SPEC BOX -->
+            <div class="spec-box">
+                <div class="spec-row">
+                    <span class="spec-label">Required Size</span>
+                    <span class="spec-value" id="specSize">—</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Max File Size</span>
+                    <span class="spec-value" id="specFileSize">—</span>
+                </div>
+                <div class="spec-row">
+                    <span class="spec-label">Format</span>
+                    <span class="spec-value" id="specFormat">JPEG</span>
+                </div>
+            </div>
+
+         
